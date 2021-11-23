@@ -3,7 +3,7 @@
 Este é o desafio para quem deseja uma revisão/mentoria.
 
 Como isso vai funcionar:
-- Isso é não é um processo seletivo.
+- Isto não é um processo seletivo.
 - Farei um code review.
 - Darei feedback com sugestão de estudos e pontos de atenção.
 - Marcaremos uma chamada 1:1 para tirar dúvidas e entender o raciocínio que levou à implementação.
