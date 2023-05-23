@@ -1,20 +1,21 @@
 package com.example.vehiclesrent.model;
 
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name="car")
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="uuid", updatable=false, unique=true, nullable=false)
+    @Column(updatable=false, unique=true, nullable=false)
     private UUID uuid;
-    @Column()
+    @Column
     private String brand;
-    @Column()
+    @Column
     private String model;
     @Column
     private LocalDateTime createdAt;
@@ -50,5 +51,20 @@ public class Car {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Car car = (Car) o;
+
+        return uuid.equals(car.uuid);
+    }
+
+    @Override
+    public int hashCode() {
+        return uuid.hashCode();
     }
 }
