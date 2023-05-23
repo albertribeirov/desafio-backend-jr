@@ -40,16 +40,15 @@ public class CarService implements ICrudService<Car> {
 
     @Override
     public Car save(Car object) {
-        return null;
-    }
-
-    @Override
-    public Car update(UUID uuid) {
-        return null;
+        return carRepository.save(object);
     }
 
     @Override
     public void delete(UUID uuid) {
+        Optional<Car> record = carRepository.findById(uuid);
 
+        if (record.isPresent()) {
+            carRepository.delete(record.get());
+        }
     }
 }
