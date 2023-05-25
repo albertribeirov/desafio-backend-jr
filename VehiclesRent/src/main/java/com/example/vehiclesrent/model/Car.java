@@ -20,6 +20,8 @@ public class Car {
     @Column
     private LocalDateTime createdAt;
 
+    public Car() {}
+
     public Car(UUID uuid, String brand, String model, LocalDateTime createdAt) {
         this.uuid = uuid;
         this.brand = brand;
