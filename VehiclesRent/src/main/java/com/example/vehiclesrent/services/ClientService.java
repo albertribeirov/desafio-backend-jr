@@ -1,6 +1,7 @@
 package com.example.vehiclesrent.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,26 +20,37 @@ public class ClientService implements ICrudService<Client>{
 
     @Override
     public void delete(UUID uuid) {
-        // TODO Auto-generated method stub
+        Optional<Client> record = repo.findById(uuid);
+
+        if (record.isPresent()) {
+            repo.delete(record.get());
+        }
         
+        // TODO handle exception
+        record.orElse(null);
     }
 
     @Override
     public List<Client> getAll() {
-        // TODO Auto-generated method stub
-        return null;
+        List<Client> records = repo.findAll();
+        return records;
     }
 
     @Override
     public Client getById(UUID uuid) {
-        // TODO Auto-generated method stub
-        return null;
+        Optional<Client> record = repo.findById(uuid);
+
+        if (record.isPresent()) {
+            return record.get();
+        }
+
+        // TODO handle exception
+        return record.orElse(null);
     }
 
     @Override
     public Client save(Client object) {
-        // TODO Auto-generated method stub
-        return null;
+        return repo.save(object);
     }
 
     
