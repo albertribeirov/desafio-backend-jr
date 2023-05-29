@@ -1,13 +1,13 @@
 package com.example.vehiclesrent.repository;
 
-import com.example.vehiclesrent.model.Car;
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
+import com.example.vehiclesrent.model.Client;
 
 @Repository
-public interface CarRepository extends JpaRepository<Car, UUID> {
-
-    void delete(UUID uuid);
+public interface ClientRepository extends JpaRepository<Client, UUID>{
+    
 }
