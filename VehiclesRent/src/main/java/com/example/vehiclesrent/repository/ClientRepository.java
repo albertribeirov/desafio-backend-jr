@@ -10,4 +10,5 @@ import com.example.vehiclesrent.model.Client;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, UUID>{
     
+    void delete(UUID uuid);
 }
