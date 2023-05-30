@@ -55,4 +55,17 @@ public class ClientServiceTest {
         assertEquals(savedClient.getName(), savedClient.getName());
 
     }
+
+
+    @DisplayName("Must return a list of cars")
+    @Test
+    public void must_return_a_list_of_cars() {
+        Client c1 = new Client(UUID.randomUUID(), "Henry", "100.200.300-40", car, LocalDate.of(1997, Month.OCTOBER, 20), LocalDateTime.now(), LocalDateTime.now());
+        Client c2 = new Client(UUID.randomUUID(), "Ada", "900.900.900-92", car, LocalDate.of(1990, Month.JANUARY, 01), LocalDateTime.now(), LocalDateTime.now());
+        clients.add(c1);
+        clients.add(c2);
+
+        assertNotNull(clients);
+        assertEquals(2, clients.size());
+    }
 }
